@@ -1,20 +1,13 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mbti_profile/Homepage.dart';
-import 'package:mbti_profile/login_page.dart';
-import 'package:mbti_profile/profile_page.dart';
-import 'package:mbti_profile/user_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:chat_mbti/screens/chat_screen.dart';
+import 'package:chat_mbti/screens/main_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(
-    MultiProvider(providers: [
-      ChangeNotifierProvider(create: (context) => UserProvider()),
-      ChangeNotifierProvider(create: (context) => ProfileService()),
-    ], child: const MyApp()),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -23,11 +16,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      title: 'Chatting app',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return ChatScreen();
+          }
+          return LoginSignupScreen();
+        },
+      ),
     );
   }
 }
-
-
-// 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
