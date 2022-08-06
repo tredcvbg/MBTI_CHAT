@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "767117189798",
+    "project_id": "chat-mbti-d9dbe",
+    "storage_bucket": "chat-mbti-d9dbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:767117189798:android:a194c9875221f9fd550a67",
+        "android_client_info": {
+          "package_name": "com.example.chat_mbti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "767117189798-6fne6abll6mlt99fl61ddnqu2nt3idgg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyhvFBLCgowL0C6svlPta1iKktgqHoNdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "767117189798-6fne6abll6mlt99fl61ddnqu2nt3idgg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
